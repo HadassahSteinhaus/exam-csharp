@@ -1,0 +1,693 @@
+﻿{
+ "format": "placement-exam-v1",
+ "variant": "v1-plus",
+ "setupOk": true,
+ "student": {
+  "name": "הדסה שטיינהויז",
+  "id": "999032113",
+  "lang": "C#",
+  "repo": ""
+ },
+ "t": {
+  "start": 1794915784997,
+  "aEnd": 1794917670993,
+  "bEnd": 1794918687068,
+  "cStart": 1794918687068,
+  "levels": {
+   "1": 1794923927453,
+   "2": 1794923969717,
+   "3": 1794924006909,
+   "4": 1794924206045
+  },
+  "hints": [],
+  "hintCards": [],
+  "run1Open": 1794928243994,
+  "run1Done": 1794928257559,
+  "dStart": 1794928257559,
+  "run2Open": 1794928474144,
+  "run2Done": 1794928630831,
+  "eEnd": 1794929540765,
+  "submitted": 1794929553766,
+  "templateAt": 1794915372319
+ },
+ "a": {
+  "summary": "התוכנית מקבלת את היום בשנה כמספר מאחד עד 365 כמספר ימות השנה, והיא מוציאה דוח של הקנסות של משתמשי הספריה לפי כללים שהוכנסו לה לפי סוג המשתמש ובסוף הדוח יש את סך כל הקנסות + רשימה נפרדת של מי שמסומת לברור כלומר מורות שלא החזירו ספר לאחד 60 יום.",
+  "cases": [
+   {
+    "type": "teacher",
+    "loan": "120",
+    "ret": "",
+    "kind": "fine",
+    "val": "0",
+    "why": ""
+   },
+   {
+    "type": "student",
+    "loan": "106",
+    "ret": "",
+    "kind": "fine",
+    "val": "0",
+    "why": ""
+   },
+   {
+    "type": "student",
+    "loan": "",
+    "ret": "4",
+    "kind": "error",
+    "val": "",
+    "why": ""
+   },
+   {
+    "type": "teacher",
+    "loan": "5",
+    "ret": "",
+    "kind": "flag",
+    "val": "",
+    "why": ""
+   },
+   {
+    "type": "guest",
+    "loan": "110",
+    "ret": "",
+    "kind": "fine",
+    "val": "8",
+    "why": ""
+   }
+  ],
+  "questions": [],
+  "opened": [
+   {
+    "id": 3,
+    "t": 1794916692219
+   },
+   {
+    "id": 5,
+    "t": 1794916723523
+   }
+  ],
+  "plan": [
+   {
+    "part": "קובץ",
+    "does": "מערך אוביקטים של משתמשים לכל קוראת שורה אחת לפי מזהה עם סכום הקנסות של כל השאלות "
+   },
+   {
+    "part": "",
+    "does": "יהיה לי פונקציית הוספה של משתמש "
+   },
+   {
+    "part": "",
+    "does": "פונקציית הורדה של משתמש"
+   },
+   {
+    "part": "",
+    "does": "פונקציית הדפסת המערך לפי דרישות "
+   },
+   {
+    "part": "קובץ של השאלת ספר ",
+    "does": "פונקצית השאלה"
+   },
+   {
+    "part": "",
+    "does": "פונקצית החזרה"
+   }
+  ],
+  "models": [
+   {
+    "name": "User",
+    "fields": "type Type,lDate,rDate,reader_id,name,totleFine"
+   },
+   {
+    "name": "Library",
+    "fields": "users[]user,numOfUsers,"
+   },
+   {
+    "name": "Type",
+    "fields": "dayAlounce,fine,type"
+   },
+   {
+    "name": "",
+    "fields": ""
+   }
+  ]
+ },
+ "b": {
+  "b1q1": "8",
+  "b1q2": "12",
+  "b2": {
+   "q1": "both",
+   "q2": "b",
+   "q3": "once",
+   "q4": "memory",
+   "text": ""
+  },
+  "b3": {
+   "marks": {
+    "8": "אני רוצה לכלול את גיל 12 ולכן צריך לעשות >=",
+    "14": "ההנחה צריכה להיות רק על כרטיסי המבוגרים צריך להקיף בסוגרים את ADULTS*0.9 ואז לצבור את סכום הילדים",
+    "15": "במקרה שהקבוצה שלי קטנה מ10 אני מחזירה 0 צריך ליצור קודם ELSE ל IF ולצבור את הסכום"
+   },
+   "unmarked": {},
+   "approve": "no",
+   "testAges": "5,90",
+   "testExp": "60"
+  }
+ },
+ "c": {
+  "codeBefore": "",
+  "out1a": "FINES\r\n101,צביה לוין,6\r\n102,תהילה כץ,0\r\n107,יעל אדלר,8\r\n103,שירה גבאי,0\r\n104,דינה שטרן,2\r\n112,בינה קליין,8\r\n105,הדסה וולף,30\r\n113,זהבה אורן,60\r\n106,חנה רוזן,6\r\n121,גאולה חדד,18\r\n108,טובה מזרחי,100\r\n109,רבקה פישר,0\r\n110,פנינה עזרא,0\r\n111,נחמה ברגר,0\r\n114,מיכל דהן,4\r\n115,אורית שמש,4\r\nFLAGGED\r\n110,פנינה עזרא\r\nERRORS\r\nTOTAL,246\r\nTOP_BOOKS\r\nbook,count\r\nאיסתרק,8\r\nקיצור שולחן ערוך,6\r\nעולם חירש,4\r\nAT_RISK\r\n121,גאולה חדד\r\n",
+  "out1b": "FINES\r\n131,לאה גולן,3\r\n132,עדי פרלמן,5\r\n136,שפרה ליפשיץ,0\r\n137,אסתר כרמי,0\r\nFLAGGED\r\nERRORS\r\n133,מלכה נחום,student,איסתרק,80,70\r\n134,נעמי סגל,student,עולם חירש,40\r\n135,ענבל פרץ,staff,להשאר יהודי,30,40\r\nTOTAL,8\r\nTOP_BOOKS\r\nbook,count\r\nאיסתרק,1\r\nלהשאר יהודי,1\r\nעולם חירש,1\r\nAT_RISK\r\n",
+  "via": "script",
+  "results": {
+   "kind": "placement-results",
+   "version": 1,
+   "mode": "C",
+   "lang": "csharp",
+   "created": "2026-11-17T17:10:01",
+   "created_epoch": 1794928201699,
+   "at": null,
+   "build": {
+    "ok": true,
+    "output": "Build succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:01.67",
+    "ms": 1954
+   },
+   "runs": [
+    {
+     "file": "check1a.txt",
+     "exit": 0,
+     "timed_out": false,
+     "ms": 118,
+     "stdout": "FINES\r\n101,צביה לוין,6\r\n102,תהילה כץ,0\r\n107,יעל אדלר,8\r\n103,שירה גבאי,0\r\n104,דינה שטרן,2\r\n112,בינה קליין,8\r\n105,הדסה וולף,30\r\n113,זהבה אורן,60\r\n106,חנה רוזן,6\r\n121,גאולה חדד,18\r\n108,טובה מזרחי,100\r\n109,רבקה פישר,0\r\n110,פנינה עזרא,0\r\n111,נחמה ברגר,0\r\n114,מיכל דהן,4\r\n115,אורית שמש,4\r\nFLAGGED\r\n110,פנינה עזרא\r\nERRORS\r\nTOTAL,246\r\nTOP_BOOKS\r\nbook,count\r\nאיסתרק,8\r\nקיצור שולחן ערוך,6\r\nעולם חירש,4\r\nAT_RISK\r\n121,גאולה חדד\r\n",
+     "stderr_tail": "skeleton ok: read check1a.txt - report day 150 - 20 rows",
+     "decode_problem": false
+    },
+    {
+     "file": "check1b.txt",
+     "exit": 0,
+     "timed_out": false,
+     "ms": 118,
+     "stdout": "FINES\r\n131,לאה גולן,3\r\n132,עדי פרלמן,5\r\n136,שפרה ליפשיץ,0\r\n137,אסתר כרמי,0\r\nFLAGGED\r\nERRORS\r\n133,מלכה נחום,student,איסתרק,80,70\r\n134,נעמי סגל,student,עולם חירש,40\r\n135,ענבל פרץ,staff,להשאר יהודי,30,40\r\nTOTAL,8\r\nTOP_BOOKS\r\nbook,count\r\nאיסתרק,1\r\nלהשאר יהודי,1\r\nעולם חירש,1\r\nAT_RISK\r\n",
+     "stderr_tail": "skeleton ok: read check1b.txt - report day 150 - 7 rows",
+     "decode_problem": false
+    }
+   ],
+   "sample_run": {
+    "file": "sample.txt",
+    "exit": 0,
+    "timed_out": false,
+    "ms": 115,
+    "stdout": "FINES\r\n11,רחל כהן,2\r\n12,מרים לוי,30\r\n21,שרה גולד,0\r\n31,לאה רוזן,8\r\nFLAGGED\r\n21,שרה גולד\r\nERRORS\r\n13,דינה אבן,student,קיצור שולחן ערוך,50,45\r\nTOTAL,40\r\nTOP_BOOKS\r\nbook,count\r\nעולם חירש,2\r\nאיסתרק,1\r\nלהשאר יהודי,1\r\nAT_RISK\r\n",
+    "stderr_tail": "skeleton ok: read sample.txt - report day 120 - 6 rows",
+    "decode_problem": false
+   },
+   "warnings": [],
+   "files": [
+    {
+     "path": "app/Fine.cs",
+     "lines": 40,
+     "classes": [
+      "Loan",
+      "Fine"
+     ],
+     "functions": [
+      {
+       "name": "Calculate",
+       "lines": 9
+      },
+      {
+       "name": "StudentFine",
+       "lines": 7
+      },
+      {
+       "name": "GuestFine",
+       "lines": 5
+      }
+     ],
+     "type_ifs": 2
+    },
+    {
+     "path": "app/LoanReader.cs",
+     "lines": 100,
+     "classes": [
+      "ReportData",
+      "LoanReader"
+     ],
+     "functions": [
+      {
+       "name": "Read",
+       "lines": 21
+      },
+      {
+       "name": "FindSample",
+       "lines": 11
+      },
+      {
+       "name": "ReadReportDay",
+       "lines": 4
+      },
+      {
+       "name": "TryCreateLoan",
+       "lines": 34
+      },
+      {
+       "name": "IsMissingRequiredField",
+       "lines": 6
+      },
+      {
+       "name": "IsKnownType",
+       "lines": 4
+      }
+     ],
+     "type_ifs": 1
+    },
+    {
+     "path": "app/Program.cs",
+     "lines": 57,
+     "classes": [
+      "Program"
+     ],
+     "functions": [
+      {
+       "name": "Main",
+       "lines": 14
+      },
+      {
+       "name": "ReadReportDay",
+       "lines": 4
+      },
+      {
+       "name": "ReadRows",
+       "lines": 12
+      },
+      {
+       "name": "FindSample",
+       "lines": 11
+      }
+     ],
+     "type_ifs": 0
+    },
+    {
+     "path": "app/ReportPrinter.cs",
+     "lines": 104,
+     "classes": [
+      "ReportPrinter",
+      "ReaderSummary"
+     ],
+     "functions": [
+      {
+       "name": "Print",
+       "lines": 14
+      },
+      {
+       "name": "CalculateFines",
+       "lines": 5
+      },
+      {
+       "name": "GetReaderSummaries",
+       "lines": 13
+      },
+      {
+       "name": "GetFlaggedReaders",
+       "lines": 12
+      },
+      {
+       "name": "PrintFines",
+       "lines": 6
+      },
+      {
+       "name": "PrintFlagged",
+       "lines": 6
+      },
+      {
+       "name": "PrintErrors",
+       "lines": 5
+      },
+      {
+       "name": "PrintTopBooks",
+       "lines": 14
+      },
+      {
+       "name": "PrintAtRisk",
+       "lines": 6
+      }
+     ],
+     "type_ifs": 1
+    },
+    {
+     "path": "app/ReportRunner.cs",
+     "lines": 13,
+     "classes": [
+      "ReportRunner"
+     ],
+     "functions": [
+      {
+       "name": "Run",
+       "lines": 7
+      }
+     ],
+     "type_ifs": 0
+    }
+   ],
+   "git": {
+    "available": true,
+    "commit": "12048ec",
+    "note": "nothing new to commit",
+    "log": "9da6996|2026-11-17 13:38:01 +0200|start\nc9594f5|2026-11-17 15:59:23 +0200|level 1\nee32a16|2026-11-17 16:46:05 +0200|level 3\n2fb01b3|2026-11-17 17:01:16 +0200|before change\n2ad950e|2026-11-17 17:04:39 +0200|before change\n6f4d76f|2026-11-17 17:08:07 +0200|before change\n12048ec|2026-11-17 17:09:19 +0200|final solution",
+    "numstat": "commit|9da6996|start\n\n7\t0\t.gitignore\n55\t0\tapp/Program.cs\n11\t0\tapp/app.csproj\n449\t0\tcheck/run_checks.py\n8\t0\tdata/sample.txt\ncommit|c9594f5|level 1\n\n81\t0\tapp/Fine.cs\n45\t36\tapp/Program.cs\ncommit|ee32a16|level 3\n\n21\t66\tapp/Fine.cs\n103\t40\tapp/Program.cs\ncommit|2fb01b3|before change\n\n15\t11\tapp/Fine.cs\n17\t89\tapp/Program.cs\n138\t0\tapp/ReportRunner.cs\ncommit|2ad950e|before change\n\n100\t0\tapp/LoanReader.cs\n138\t0\tapp/ReportPrinter.cs\n4\t124\tapp/ReportRunner.cs\n132\t0\tresults_C.json\ncommit|6f4d76f|before change\n\n2\t0\tapp/Program.cs\n60\t94\tapp/ReportPrinter.cs\n1\t6\tapp/ReportRunner.cs\n132\t0\tresults_C.170443.json\n99\t22\tresults_C.json\ncommit|12048ec|final solution\n\n209\t0\tresults_C.170810.json\n27\t38\tresults_C.json"
+   }
+  },
+  "uploads": [
+   {
+    "t": 1794928243994,
+    "created": "2026-11-17T17:10:01",
+    "commit": "12048ec",
+    "warnings": [],
+    "runs": [
+     {
+      "file": "check1a.txt",
+      "exit": 0,
+      "timed_out": false
+     },
+     {
+      "file": "check1b.txt",
+      "exit": 0,
+      "timed_out": false
+     }
+    ]
+   }
+  ]
+ },
+ "d": {
+  "codeAfter": "",
+  "out2": "FINES\r\n201,הניה ברק,40\r\n202,צפורה לנדאו,6\r\n214,זלדה פרי,8\r\n203,גליה שפירא,5\r\n204,דליה כהנא,25\r\n205,יוכבד ליבר,2\r\n206,תמר אלון,0\r\n207,שולמית רז,0\r\n208,רות בן דוד,0\r\n209,ברכה טל,2\r\n210,טליה נוי,13\r\n211,פזית הורוביץ,0\r\n212,נאוה שגיא,0\r\n213,חיה מור,6\r\n217,מרים אשכנזי,4\r\n218,אילנה צור,4\r\nFLAGGED\r\n211,פזית הורוביץ\r\nERRORS\r\nTOTAL,115\r\nTOP_BOOKS\r\nbook,count\r\nאיסתרק,5\r\nקיצור שולחן ערוך,5\r\nעולם חירש,4\r\nAT_RISK\r\n",
+  "via": "script",
+  "results": {
+   "kind": "placement-results",
+   "version": 1,
+   "mode": "D",
+   "lang": "csharp",
+   "created": "2026-11-17T17:16:11",
+   "created_epoch": 1794928571300,
+   "at": null,
+   "build": {
+    "ok": true,
+    "output": "Build succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.01",
+    "ms": 2341
+   },
+   "runs": [
+    {
+     "file": "check2.txt",
+     "exit": 0,
+     "timed_out": false,
+     "ms": 122,
+     "stdout": "FINES\r\n201,הניה ברק,40\r\n202,צפורה לנדאו,6\r\n214,זלדה פרי,8\r\n203,גליה שפירא,5\r\n204,דליה כהנא,25\r\n205,יוכבד ליבר,2\r\n206,תמר אלון,0\r\n207,שולמית רז,0\r\n208,רות בן דוד,0\r\n209,ברכה טל,2\r\n210,טליה נוי,13\r\n211,פזית הורוביץ,0\r\n212,נאוה שגיא,0\r\n213,חיה מור,6\r\n217,מרים אשכנזי,4\r\n218,אילנה צור,4\r\nFLAGGED\r\n211,פזית הורוביץ\r\nERRORS\r\nTOTAL,115\r\nTOP_BOOKS\r\nbook,count\r\nאיסתרק,5\r\nקיצור שולחן ערוך,5\r\nעולם חירש,4\r\nAT_RISK\r\n",
+     "stderr_tail": "skeleton ok: read check2.txt - report day 200 - 17 rows",
+     "decode_problem": false
+    }
+   ],
+   "sample_run": {
+    "file": "sample.txt",
+    "exit": 0,
+    "timed_out": false,
+    "ms": 115,
+    "stdout": "FINES\r\n11,רחל כהן,2\r\n12,מרים לוי,40\r\n21,שרה גולד,0\r\n31,לאה רוזן,8\r\nFLAGGED\r\n21,שרה גולד\r\nERRORS\r\n13,דינה אבן,student,קיצור שולחן ערוך,50,45\r\nTOTAL,50\r\nTOP_BOOKS\r\nbook,count\r\nעולם חירש,2\r\nאיסתרק,1\r\nלהשאר יהודי,1\r\nAT_RISK\r\n",
+    "stderr_tail": "skeleton ok: read sample.txt - report day 120 - 6 rows",
+    "decode_problem": false
+   },
+   "warnings": [],
+   "files": [
+    {
+     "path": "app/Fine.cs",
+     "lines": 49,
+     "classes": [
+      "Loan",
+      "Fine"
+     ],
+     "functions": [
+      {
+       "name": "Calculate",
+       "lines": 10
+      },
+      {
+       "name": "StudentFine",
+       "lines": 7
+      },
+      {
+       "name": "GuestFine",
+       "lines": 5
+      },
+      {
+       "name": "AlumnaFine",
+       "lines": 7
+      }
+     ],
+     "type_ifs": 3
+    },
+    {
+     "path": "app/LoanReader.cs",
+     "lines": 88,
+     "classes": [
+      "ReportData",
+      "LoanReader"
+     ],
+     "functions": [
+      {
+       "name": "Read",
+       "lines": 21
+      },
+      {
+       "name": "ReadReportDay",
+       "lines": 4
+      },
+      {
+       "name": "TryCreateLoan",
+       "lines": 34
+      },
+      {
+       "name": "IsMissingRequiredField",
+       "lines": 6
+      },
+      {
+       "name": "IsKnownType",
+       "lines": 4
+      }
+     ],
+     "type_ifs": 1
+    },
+    {
+     "path": "app/Program.cs",
+     "lines": 50,
+     "classes": [
+      "Program"
+     ],
+     "functions": [
+      {
+       "name": "Main",
+       "lines": 14
+      },
+      {
+       "name": "ReadReportDay",
+       "lines": 4
+      },
+      {
+       "name": "ReadRows",
+       "lines": 12
+      },
+      {
+       "name": "FindSample",
+       "lines": 4
+      }
+     ],
+     "type_ifs": 0
+    },
+    {
+     "path": "app/ReportPrinter.cs",
+     "lines": 104,
+     "classes": [
+      "ReportPrinter",
+      "ReaderSummary"
+     ],
+     "functions": [
+      {
+       "name": "Print",
+       "lines": 14
+      },
+      {
+       "name": "CalculateFines",
+       "lines": 5
+      },
+      {
+       "name": "GetReaderSummaries",
+       "lines": 13
+      },
+      {
+       "name": "GetFlaggedReaders",
+       "lines": 12
+      },
+      {
+       "name": "PrintFines",
+       "lines": 6
+      },
+      {
+       "name": "PrintFlagged",
+       "lines": 6
+      },
+      {
+       "name": "PrintErrors",
+       "lines": 5
+      },
+      {
+       "name": "PrintTopBooks",
+       "lines": 14
+      },
+      {
+       "name": "PrintAtRisk",
+       "lines": 6
+      }
+     ],
+     "type_ifs": 1
+    },
+    {
+     "path": "app/ReportRunner.cs",
+     "lines": 13,
+     "classes": [
+      "ReportRunner"
+     ],
+     "functions": [
+      {
+       "name": "Run",
+       "lines": 7
+      }
+     ],
+     "type_ifs": 0
+    }
+   ],
+   "git": {
+    "available": true,
+    "commit": "e70b63e",
+    "note": "saved your work in a commit: \"after change\"",
+    "log": "9da6996|2026-11-17 13:38:01 +0200|start\nc9594f5|2026-11-17 15:59:23 +0200|level 1\nee32a16|2026-11-17 16:46:05 +0200|level 3\n2fb01b3|2026-11-17 17:01:16 +0200|before change\n2ad950e|2026-11-17 17:04:39 +0200|before change\n6f4d76f|2026-11-17 17:08:07 +0200|before change\n12048ec|2026-11-17 17:09:19 +0200|final solution\n5d185ec|2026-11-17 17:12:46 +0200|change 1\n0213576|2026-11-17 17:13:14 +0200|change 2\ne70b63e|2026-11-17 17:16:11 +0200|after change",
+    "numstat": "commit|9da6996|start\n\n7\t0\t.gitignore\n55\t0\tapp/Program.cs\n11\t0\tapp/app.csproj\n449\t0\tcheck/run_checks.py\n8\t0\tdata/sample.txt\ncommit|c9594f5|level 1\n\n81\t0\tapp/Fine.cs\n45\t36\tapp/Program.cs\ncommit|ee32a16|level 3\n\n21\t66\tapp/Fine.cs\n103\t40\tapp/Program.cs\ncommit|2fb01b3|before change\n\n15\t11\tapp/Fine.cs\n17\t89\tapp/Program.cs\n138\t0\tapp/ReportRunner.cs\ncommit|2ad950e|before change\n\n100\t0\tapp/LoanReader.cs\n138\t0\tapp/ReportPrinter.cs\n4\t124\tapp/ReportRunner.cs\n132\t0\tresults_C.json\ncommit|6f4d76f|before change\n\n2\t0\tapp/Program.cs\n60\t94\tapp/ReportPrinter.cs\n1\t6\tapp/ReportRunner.cs\n132\t0\tresults_C.170443.json\n99\t22\tresults_C.json\ncommit|12048ec|final solution\n\n209\t0\tresults_C.170810.json\n27\t38\tresults_C.json\ncommit|5d185ec|change 1\n\n1\t1\tapp/Fine.cs\n198\t0\tresults_C.171004.json\n11\t11\tresults_C.json\ncommit|0213576|change 2\n\n9\t0\tapp/Fine.cs\n1\t1\tapp/LoanReader.cs\ncommit|e70b63e|after change\n\n0\t12\tapp/LoanReader.cs\n2\t9\tapp/Program.cs\n193\t0\tresults_D.json"
+   }
+  },
+  "uploads": [
+   {
+    "t": 1794928474144,
+    "created": "2026-11-17T17:13:45",
+    "commit": "0213576",
+    "warnings": [],
+    "runs": [
+     {
+      "file": "check2.txt",
+      "exit": 0,
+      "timed_out": false
+     }
+    ]
+   },
+   {
+    "t": 1794928617292,
+    "created": "2026-11-17T17:16:11",
+    "commit": "e70b63e",
+    "warnings": [],
+    "runs": [
+     {
+      "file": "check2.txt",
+      "exit": 0,
+      "timed_out": false
+     }
+    ]
+   },
+   {
+    "t": 1794928627668,
+    "created": "2026-11-17T17:16:11",
+    "commit": "e70b63e",
+    "warnings": [],
+    "runs": [
+     {
+      "file": "check2.txt",
+      "exit": 0,
+      "timed_out": false
+     }
+    ]
+   }
+  ]
+ },
+ "e": {
+  "conf": {
+   "a": "5",
+   "b": "5",
+   "c": "5",
+   "d": "5"
+  },
+  "cleanLevel": "4",
+  "hardest": "",
+  "stuck": "חילקתי את הבעיה לחלקים קטנים: קריאת הקובץ, בדיקת תקינות, חישוב קנס והדפסת הדוח. הרצתי את התוכנית על קובץ הדוגמה ועל בדיקות המורה ובדקתי את התוצאה.",
+  "decision": "\nהשתמשתי ב-GroupBy כדי לאחד את ההשאלות של אותה קוראת ולחשב לה קנס כולל. בנוסף הפרדתי בין קריאת הקובץ, חישוב הקנסות והדפסת הדוח. כך לכל חלק יש אחריות ברורה.",
+  "million": "החלק שעלול להיות איטי או להשתמש בהרבה זיכרון הוא קריאת כל הקובץ ושמירת כל השורות ברשימות. בנוסף, GroupBy יוצר קבוצות בזיכרון. עבור מיליון שורות עדיף לקרוא את הקובץ בהדרגה בעזרת File.ReadLines ולעבד כל שורה בזמן הקריאה, בלי לשמור את כל השורות בזיכרון.",
+  "gitLog": "9da6996|2026-11-17 13:38:01 +0200|start\nc9594f5|2026-11-17 15:59:23 +0200|level 1\nee32a16|2026-11-17 16:46:05 +0200|level 3\n2fb01b3|2026-11-17 17:01:16 +0200|before change\n2ad950e|2026-11-17 17:04:39 +0200|before change\n6f4d76f|2026-11-17 17:08:07 +0200|before change\n12048ec|2026-11-17 17:09:19 +0200|final solution\n5d185ec|2026-11-17 17:12:46 +0200|change 1\n0213576|2026-11-17 17:13:14 +0200|change 2\ne70b63e|2026-11-17 17:16:11 +0200|after change",
+  "diag": {
+   "marks": {
+    "s1": {
+     "A": [
+      "LibraryReport"
+     ],
+     "B": [
+      "ReportBuilder"
+     ],
+     "C": [
+      "ReportBuilder"
+     ]
+    },
+    "s2": {
+     "A": [
+      "LibraryReport"
+     ],
+     "B": [
+      "ReportBuilder",
+      "POLICIES"
+     ],
+     "C": [
+      "ReportBuilder"
+     ]
+    },
+    "s3": {
+     "A": [
+      "LibraryReport"
+     ],
+     "B": [
+      "ReportBuilder",
+      "POLICIES"
+     ],
+     "C": [
+      "ReportBuilder"
+     ]
+    }
+   },
+   "newc": {
+    "s1": {
+     "A": false,
+     "B": true,
+     "C": true
+    },
+    "s2": {
+     "A": false,
+     "B": true,
+     "C": true
+    },
+    "s3": {
+     "A": false,
+     "B": true,
+     "C": true
+    }
+   },
+   "choice": "C",
+   "reason": "r2",
+   "move": {
+    "method": "printLine",
+    "to": "ReportBuilder",
+    "t": 1794929455581
+   },
+   "own": "none"
+  }
+ },
+ "integrity": "1a96060b"
+}
