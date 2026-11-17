@@ -28,7 +28,7 @@ public static class Fine
     {
         if (days <= 15) return 0;
         int fine = days - 14;
-        if (fine > 30) fine = 30;
+        if (fine > 40) fine = 40;
         return fine;
     }
 
