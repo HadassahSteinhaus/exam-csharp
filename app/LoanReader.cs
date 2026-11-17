@@ -34,18 +34,6 @@ public static class LoanReader
         return data;
     }
 
-    public static string FindSample()
-    {
-        DirectoryInfo directory = new DirectoryInfo(AppContext.BaseDirectory);
-        while (directory != null)
-        {
-            string path = Path.Combine(directory.FullName, "data", "sample.txt");
-            if (File.Exists(path)) return path;
-            directory = directory.Parent;
-        }
-        return Path.Combine("data", "sample.txt");
-    }
-
     static int ReadReportDay(string line)
     {
         return int.Parse(line.Split(':')[1].Trim());

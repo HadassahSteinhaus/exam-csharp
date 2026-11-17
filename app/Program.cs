@@ -42,16 +42,9 @@ class Program
         return rows;
     }
 
-    // Without a path, look for data/sample.txt next to the project, also when started from Visual Studio
+    // Without a path, use the sample file in the exam folder
     static string FindSample()
     {
-        DirectoryInfo dir = new DirectoryInfo(AppContext.BaseDirectory);
-        while (dir != null)
-        {
-            string candidate = Path.Combine(dir.FullName, "data", "sample.txt");
-            if (File.Exists(candidate)) return candidate;
-            dir = dir.Parent;
-        }
-        return Path.Combine("data", "sample.txt");
+        return "data/sample.txt";
     }
 }
