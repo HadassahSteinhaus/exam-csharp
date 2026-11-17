@@ -19,18 +19,22 @@ public static class Fine
         int endDay = loan.ReturnDay ?? reportDay;
         int days = endDay - loan.LoanDay;
 
-        if (loan.Type == "student")
-        {
-            if (days <= 15) return 0;
-            return Math.Min(30, days - 14);
-        }
-
-        if (loan.Type == "guest")
-        {
-            if (days <= 7) return 0;
-            return (int)Math.Ceiling((days - 7) * 2.5);
-        }
-
+        if (loan.Type == "student") return StudentFine(days);
+        if (loan.Type == "guest") return GuestFine(days);
         return 0;
+    }
+
+    static int StudentFine(int days)
+    {
+        if (days <= 15) return 0;
+        int fine = days - 14;
+        if (fine > 30) fine = 30;
+        return fine;
+    }
+
+    static int GuestFine(int days)
+    {
+        if (days <= 7) return 0;
+        return (int)Math.Ceiling((days - 7) * 2.5);
     }
 }
