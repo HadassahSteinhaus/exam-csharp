@@ -18,6 +18,8 @@ class Program
         List<string[]> rows = ReadRows(lines);
         Console.Error.WriteLine("skeleton ok: read " + Path.GetFileName(path) + " - report day " + reportDay + " - " + rows.Count + " rows");
 
+        ReportRunner.Run(path);
+
         // Write your code here. 'reportDay' and 'rows' are ready.
     }
 
