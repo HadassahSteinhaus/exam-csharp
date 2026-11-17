@@ -95,6 +95,6 @@ public static class LoanReader
 
     static bool IsKnownType(string type)
     {
-        return type == "student" || type == "teacher" || type == "guest";
+        return type == "student" || type == "teacher" || type == "guest" || type == "alumna";
     }
 }

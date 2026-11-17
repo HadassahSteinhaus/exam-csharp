@@ -21,6 +21,7 @@ public static class Fine
 
         if (loan.Type == "student") return StudentFine(days);
         if (loan.Type == "guest") return GuestFine(days);
+        if (loan.Type == "alumna") return AlumnaFine(days);
         return 0;
     }
 
@@ -36,5 +37,13 @@ public static class Fine
     {
         if (days <= 7) return 0;
         return (int)Math.Ceiling((days - 7) * 2.5);
+    }
+
+    static int AlumnaFine(int days)
+    {
+        if (days <= 10) return 0;
+        int fine = (int)Math.Ceiling((days - 10) * 1.5);
+        if (fine > 25) fine = 25;
+        return fine;
     }
 }
